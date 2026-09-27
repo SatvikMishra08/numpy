@@ -90,6 +90,12 @@ This will create a build that is compatible with all x86 CPUs, but
 without any manual optimizations or SIMD code paths for the baseline.
 The build will rely only on dispatched code paths for optimization.
 
+Setting ``cpu-baseline="none"`` does **not** disable CPU dispatch: the
+default ``cpu-dispatch`` still builds optimized kernels for newer feature
+groups, and NumPy selects among them at runtime. To turn off dispatched
+paths as well, set ``cpu-dispatch="none"`` (see :ref:`opt-special-options`
+and the ``cpu-dispatch`` option above).
+
 Targeting Newer CPUs
 ~~~~~~~~~~~~~~~~~~~~
 
